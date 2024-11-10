@@ -8,7 +8,9 @@ let users = new Users();
 
 app.use(express.static(__dirname));
 
-
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Login', 'login.html'));
+})
 
 app.get('/newUser', (req, res) => {
   res.sendFile(path.join(__dirname, 'newUser.html'));
