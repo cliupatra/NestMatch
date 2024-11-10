@@ -32,16 +32,7 @@ function loadprofileContent() {
 }
 
 function loadsignoutContent() {
-    // Show the chat tab
-    openTab('signout');
-    
-    // Fetch and load content from chatBox.html
-    fetch('Login/login.html')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('signout').innerHTML = html;
-        })
-        .catch(error => console.error('Error loading chat content:', error));
+    window.location.href = 'http://127.0.0.1:5500/Login/login.html';
 }
 
 function nextSkipUser() {
