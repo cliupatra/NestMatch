@@ -79,6 +79,4 @@ class Users {
 
 }
 
-let users = new Users();
-
-users.test();
+module.exports = Users;

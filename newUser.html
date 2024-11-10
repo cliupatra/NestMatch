@@ -131,18 +131,16 @@
       })
         .then(response => response.json())
         .then(data => {
-          console.log('Success:', data);
+          if (data.redirect) {
+            // Manually redirect to another HTML file
+            window.location.href = data.redirect;
+          }
         })
         .catch(error => {
           console.error('Error:', error);
         });
     });
 
-
-
-
   </script>
-
-
 
 </body>
