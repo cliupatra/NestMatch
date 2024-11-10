@@ -3,6 +3,118 @@
   }
 
   body {
-    background-color: blue;
+    background-color: lightblue;
   }
 
+  .profilelayout {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    text-align: right;
+    margin-right: 35%;
+  }
+
+.left {
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: red;
+}
+
+.right {
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: blue;
+}
+
+img {
+    outline-style: double;
+    outline-color: lightgoldenrodyellow;
+    outline-width: 15px;
+    border-radius: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #274380;
+  }
+  
+  .active {
+    background-color: gold;
+  }
+
+  .tab-content {
+    display: none; /* Hide all tab content by default */
+}
+
+.tab-content.active {
+    display: block; /* Show the active tab content */
+}
+
+
+/* .tabs {
+    border: 1px solid yellow;
+    display: flex;
+}
+
+.tabs__sidebar {
+    width: 125px;
+    flex-shrink: 0;
+    background: gainsboro;
+}
+
+.tabs__button {
+    display: block;
+    padding: 10px;
+    background: lightgoldenrodyellow;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.tabs__button:active {
+    background: blue;
+}
+
+.tabs__button:not(:last-of-type) {
+    background: wheat;
+}
+
+.tabs__button:--active {
+    font-weight: bold;
+    border-right: 2px solid white;
+    background: green;
+} 
+
+.tabs__content {
+    padding: 15px;
+    font-size: 0.8rem;
+    display: none;
+}
+
+.tabs__content--active {
+    display: block;
+} */
