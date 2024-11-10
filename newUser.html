@@ -30,9 +30,9 @@
 </head>
 
 <ul>
-    <li><a href="#home" onclick="openTab('home')">Home</a></li>
+    <li><a href="#home" onclick="loadhomeContent()">Home</a></li>
     <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
-    <li><a href="#home" onclick="loadhomeContent()">Profile Setting</a></li>
+    <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
     <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
 </ul> 
 
@@ -94,11 +94,11 @@
   <div id="chat" class="tab-content">
     </div>
 
-  <div id="home" class="tab-content">
-  </div>
+    <div id="myprofile" class="tab-content">
+    </div>
 
-  <div id="signout" class="tab-content">
-  </div>
+    <div id="signout" class="tab-content">
+    </div>
 
   <script>
 
@@ -166,12 +166,15 @@
     document.getElementById(tabId).classList.add('active');
 }
 
+function loadhomeContent() {
+    window.location.href = 'http://127.0.0.1:5500/mainMenu.html';
+}
 function loadChatContent() {
     window.location.href = 'http://127.0.0.1:5500/chatBox.html';
 }
 
-function loadhomeContent() {
-    window.location.href = 'http://127.0.0.1:5500/mainMenu.html';
+function loadprofileContent() {
+    window.location.href = 'http://127.0.0.1:5500/newUser.html';
 }
 
 function loadsignoutContent() {
