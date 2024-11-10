@@ -2,8 +2,8 @@
 :root {
     --base-color: white;
     --text-color: black;
-    --input-color: rgb(196, 250, 255);
-    --accent-color: rgb(0, 164, 189);
+    --input-color: rgb(196, 198, 198);
+    --accent-color: rgb(0, 0, 0);
 }
 
 *{
