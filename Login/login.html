@@ -11,7 +11,7 @@
     <div class = "wrapper">
 
 
-        <form>
+        <form id="loginForm">
 
             <h1><strong>Welcome Back to</strong></h1>
             <h1><strong>Nest Match!</strong></h1>
@@ -26,9 +26,9 @@
             </div>
 
         
-            <button type = "button" onclick="location.href='../mainMenu.html'">Login</button>
+            <button type="submit">Login</button>
 
-     </form>
+        </form>
 
         <p>Don't have an Account?<a href="signup.html"> Sign Up!</a></p>
 
@@ -36,9 +36,20 @@
 
     </div>
 
+    <script>
+       
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+          
+            if (this.checkValidity()) {
+                window.location.href = '../mainMenu.html'; 
+            } else {
+                event.preventDefault();
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
 
-
-    
 
 
     
