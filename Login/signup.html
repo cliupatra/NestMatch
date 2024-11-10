@@ -58,6 +58,21 @@
 
         <p>Have an Account? <a href="login.html">Log In!</a></p>
 
+
+        <script>
+       
+            document.getElementById('signupForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+              
+                if (this.checkValidity()) {
+                    window.location.href = 'login.html'; 
+                } else {
+                    event.preventDefault();
+                    alert('Please fill in all required fields.');
+                }
+            });
+        </script>
+
     </div>
 
 
