@@ -5,10 +5,9 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 
-
 <body>
     <div class="Header-container">
-        <h1>UBRoomies!</h1>
+        <h1>Find Your Roomie!</h1>
     </div>
 
     <div class="Slogan Info">
@@ -18,12 +17,19 @@
     <div class="Profile Info">
         <img src="images/images.jpg" alt="Test User Image">
     </div>
-
-    <div class= "buttons-container">
-            <button alt=" ">Swift Left</button>
-            <button>Nest Me</button>
+    
+    <div id="chat" class="tab-content" style="display:none;">
+        <iframe src="chatBox.html" width="100%" height="500px" style="border:none;"></iframe>
+    </div>
+    
+    <div id="myprofile" class="tab-content" style="display:none;">
+        <h2>My Profile</h2>
+        <p>Profile details go here.</p>
     </div>
 
+    <script src="mainMenu.js"></script> 
+    
+</body>
 </html>
 
 

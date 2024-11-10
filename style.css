@@ -3,40 +3,75 @@
   }
 
   body {
-    background-color: blue;
+    background-color: lightblue;
   }
 
-  .buttons-container {
+  .profilelayout {
     display: flex;
-    align-items: center;
-    gap: 10px; 
-    margin-top: 20px;
-}
+    flex-direction: column;
+    align-items: right;
+    text-align: right;
+    margin-right: 35%;
+  }
 
-.button {
-    padding: 10px 20px;
-    font-size: 16px;
+.left {
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
     cursor: pointer;
+    background-color: red;
 }
 
-.left.button {
-    background-color: #ff6b6b;
-    color: #fff;
+.right {
+    border-radius: 20px;
     border: none;
-    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: blue;
 }
 
-.right.button {
-    background-color: #5a67d8;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+img {
+    outline-style: double;
+    outline-color: lightgoldenrodyellow;
+    outline-width: 15px;
+    border-radius: 20px;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #274380;
+  }
+  
+  .active {
+    background-color: gold;
+  }
 
+  .tab-content {
+    display: none; /* Hide all tab content by default */
+}
 
-
-
+.tab-content.active {
+    display: block; /* Show the active tab content */
+}
 
 
 /* .tabs {
