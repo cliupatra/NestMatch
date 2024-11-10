@@ -28,16 +28,16 @@
 </head>
 
 <body>
-  <p>Enter your name: <input type="text"></p>
+  <p>Enter your name: <input type="text" id="name"></p>
   <p>Select your gender:
-    <select>
+    <select id="gender">
       <option value="female">Female</option>
       <option value="male">Male</option>
     </select>
   </p>
 
   <p>You prefer to room with a:
-    <select>
+    <select id="roommate-gender">
       <option value="female">Female</option>
       <option value="male">Male</option>
     </select>
@@ -45,7 +45,7 @@
   </p>
 
   <p>Are you a:
-    <select>
+    <select id="sleepLevel">
       <option value="early">Early Bird</option>
       <option value="late">Night Owl</option>
     </select>
@@ -55,28 +55,94 @@
   <p>
     How clean are you?
   </p>
-  <button class="choice-button">1</button>
-  <button class="choice-button">2</button>
-  <button class="choice-button">3</button>
-  <button class="choice-button">4</button>
-  <button class="choice-button">5</button>
+  <button class="choice-button" cleanLevel="1">1</button>
+  <button class="choice-button" cleanLevel="2">2</button>
+  <button class="choice-button" cleanLevel="3">3</button>
+  <button class="choice-button" cleanLevel="4">4</button>
+  <button class="choice-button" cleanLevel="5">5</button>
 
   <p>
     What noise level do you like:
   </p>
-  <button class="choice-button">1</button>
-  <button class="choice-button">2</button>
-  <button class="choice-button">3</button>
-  <button class="choice-button">4</button>
-  <button class="choice-button">5</button>
+  <button class="choice-button" noiseLevel="1">1</button>
+  <button class="choice-button" noiseLevel="2">2</button>
+  <button class="choice-button" noiseLevel="3">3</button>
+  <button class="choice-button" noiseLevel="4">4</button>
+  <button class="choice-button" noiseLevel="5">5</button>
 
   <p>
     How much of a partier are you?
   </p>
 
-  <button class="choice-button">1</button>
-  <button class="choice-button">2</button>
-  <button class="choice-button">3</button>
-  <button class="choice-button">4</button>
-  <button class="choice-button">5</button>
+  <button class="choice-button" partyLevel="1">1</button>
+  <button class="choice-button" partyLevel="2">2</button>
+  <button class="choice-button" partyLevel="3">3</button>
+  <button class="choice-button" partyLevel="4">4</button>
+  <button class="choice-button" partyLevel="5">5</button>
+
+  <button id="submit-button">Submit</button>
+
+  <script>
+
+    let cleanLevel, noiseLevel, partyLevel;
+
+    const cleanButtons = document.querySelectorAll('[cleanLevel]');
+    cleanButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        cleanLevel = button.getAttribute('cleanLevel');
+      });
+    });
+
+    const noiseButtons = document.querySelectorAll('[noiseLevel]');
+    noiseButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        noiseLevel = button.getAttribute('noiseLevel');
+      });
+    });
+
+    const partyButtons = document.querySelectorAll('[partyLevel]');
+    partyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        partyLevel = button.getAttribute('partyLevel');
+      });
+    });
+
+
+    document.getElementById('submit-button').addEventListener('click', () => {
+      const userName = document.getElementById('name').value;
+      const gender = document.getElementById('gender').value;
+      const preferToRoomWith = document.getElementById('roommate-gender').value;
+      const sleepLevel = document.getElementById('sleepLevel').value;
+
+      const userData = {
+        userName,
+        gender,
+        preferToRoomWith,
+        sleepLevel,
+        cleanLevel,
+        noiseLevel,
+        partyLevel
+      };
+
+      fetch('/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData)
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+
+
+
+  </script>
+
+
+
 </body>
