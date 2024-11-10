@@ -53,6 +53,12 @@
 
             <button id="sign-up">Sign Up</button>
 
+            <script>
+                document.getElementById('sign-up').addEventListener('click', () => {
+                    window.location.href = '../newUser';
+                });
+            </script>
+
         </form>
 
 
@@ -60,27 +66,23 @@
 
 
         <script>
-       
-            document.getElementById('signupForm').addEventListener('submit', function(event) {
+
+            document.getElementById('signupForm').addEventListener('submit', function (event) {
                 event.preventDefault();
-              
+
                 if (this.checkValidity()) {
-                    window.location.href = 'login.html'; 
+                    window.location.href = 'login.html';
                 } else {
                     event.preventDefault();
                     alert('Please fill in all required fields.');
                 }
             });
+
+
+
         </script>
 
     </div>
-
-
-    <script>
-        document.getElementById('submit-button').addEventListener('click', () => {
-            window.location.href = '../newUser.html';
-        });
-    </script>
 
 
 </body>

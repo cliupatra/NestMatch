@@ -7,7 +7,7 @@ const User = require('./User');
 let users = new Users();
 let user;
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'Login')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'Login', 'login.html'));
