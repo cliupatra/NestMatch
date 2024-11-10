@@ -10,7 +10,7 @@
 
 
     <div class = "wrapper">
-        <form>
+        <form id="signupForm">
 
             <h1><strong>Welcome to Nest Match!</strong></h1>
 
@@ -27,7 +27,7 @@
             </div>
 
             <div>
-                <input required type="text" name="repeat password" id="repeat-password" placeholder="Repeat Password">
+                <input required type="text" name="repeatPassword" id="repeat-password" placeholder="Repeat Password">
                 <small id="error-message" style = "color: red; display: none;">Passwords do not match!</small>
               
             </div>
@@ -51,12 +51,27 @@
             </script>
 
         
-            <button>Sign Up</button>
+            <button type="submit">Sign Up</button>
 
         </form>
 
 
         <p>Have an Account? <a href="login.html">Log In!</a></p>
+
+
+        <script>
+       
+            document.getElementById('signupForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+              
+                if (this.checkValidity()) {
+                    window.location.href = 'login.html'; 
+                } else {
+                    event.preventDefault();
+                    alert('Please fill in all required fields.');
+                }
+            });
+        </script>
 
     </div>
 
