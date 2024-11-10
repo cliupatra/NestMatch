@@ -45,7 +45,7 @@ function loadsignoutContent() {
 }
 
 function nextSkipUser() {
-
+    
 }
 
 function nextKeepUser() {
