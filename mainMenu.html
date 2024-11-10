@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nest Finder</title>
     <link rel="stylesheet" href="style.css">
+    <script src="mainMenu.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
     <ul>
         <li><a href="#home" onclick="openTab('home')">Home</a></li>
-        <li><a href="#chat" onclick="openTab('chat')">Chat</a></li>
-        <li><a href="#myprofile" onclick="openTab('myprofile')">My Profile</a></li>
+        <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
+        <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
+        <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
     </ul> 
 
     <!-- Tab Contents -->
@@ -26,84 +28,20 @@
                 <p class="description">Ryan, 20</p>
             </div>
             <div class="buttonscontainer">
-                <button class="left">Swipe Left</button>
-                <button class="right">Nest Me</button>
+                <button class="left" onclick="nextSkipUser()">Swipe Left</button>
+                <button class="right" onclick="nextKeepUser()">Nest Me</button>
             </div>
         </div>
     </div>
 
     <div id="chat" class="tab-content">
-        <h2>Chat Section</h2>
-        <p>Chat content will go here.</p>
     </div>
 
     <div id="myprofile" class="tab-content">
-        <h2>My Profile</h2>
-        <p>Profile details go here.</p>
     </div>
 
-    <!-- JavaScript for Tab Switching -->
-    <script>
-        function openTab(tabId) {
-            // Hide all tab content
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            // Show the selected tab
-            document.getElementById(tabId).classList.add('active');
-        }
-    </script>
+    <div id="signout" class="tab-content">
+    </div>
+
 </body>
 </html>
-
-
-<!-- 
-    <div class="tabs">
-        <div class="tabs__sidebar">
-            <button class="tabs__button tabs__button--active" data-for-tab="1">NestMatch Tab</button>
-            <button class="tabs__button" data-for-tab="2">Settings Tab</button>
-            <button class="tabs__button" data-for-tab="3">Preference Tab</button>
-            <button class="tabs__button" data-for-tab="4">Chat Tab</button>
-        </div>
-
-        <div class="tabs__content tabs__content--active" data-tab="1">
-            <h2>Nest Match Main Page</h2>
-            <p>This is where the main matching takes place</p> 
-        </div>
-
-        <div class="tabs__content" data-tab="2">
-                <h2>My Setting</h2>
-                <p>This is where I edit my settings </p>
-        </div>
-
-        <div class="tabs__content" data-tab="3">
-            <h2>My Preferences Page</h2>
-            <p>This is where I edit my preferences</p>
-        </div>
-
-        <div class="tabs__content" data-tab="4">
-                <h2>Chat Tab</h2>
-                <p>This is where I view my chats</p>
-        </div>
-    </div>
-</body>
-
-<script>
-    function setupTabs() {
-        document.querySelectorAll(".tabs__button").forEach(button => {
-            button.addEventListener("click", () => {
-                const sideBar = button.parentElement;
-                const tabContainer = sideBar.parentElement;
-                const tabsNumber = button.dataset.forTab;
-                const tabToActivate = tabsContainer.querySelector('.tabs__content[data-tab="${tabsNumber}"]');
-
-                console.log(sideBar);
-                console.log(tabContainer);
-                console.log(tabsNumber);
-                console.log(tabToActivate);
-            });
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", ()=> {
-    setupTabs();
-    })
-     -->
