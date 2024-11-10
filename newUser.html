@@ -4,7 +4,7 @@
   <title>rate your preferences</title>
 
   <link rel="stylesheet" href="newUserstyle.css">
-  
+
   <style>
     .choice-button {
       border-radius: 50%;
@@ -28,6 +28,13 @@
     }
   </style>
 </head>
+
+<ul>
+    <li><a href="#home" onclick="openTab('home')">Home</a></li>
+    <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
+    <li><a href="#home" onclick="loadhomeContent()">Profile Setting</a></li>
+    <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
+</ul> 
 
 <body>
   <p>Enter your name: <input type="text" id="name"></p>
@@ -83,6 +90,15 @@
   <button class="choice-button" partyLevel="5">5</button>
 
   <button id="submit-button">Submit</button>
+
+  <div id="chat" class="tab-content">
+    </div>
+
+  <div id="home" class="tab-content">
+  </div>
+
+  <div id="signout" class="tab-content">
+  </div>
 
   <script>
 
@@ -142,6 +158,25 @@
           console.error('Error:', error);
         });
     });
+
+    function openTab(tabId) {
+    // Hide all tab content
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    // Show the selected tab
+    document.getElementById(tabId).classList.add('active');
+}
+
+function loadChatContent() {
+    window.location.href = 'http://127.0.0.1:5500/chatBox.html';
+}
+
+function loadhomeContent() {
+    window.location.href = 'http://127.0.0.1:5500/mainMenu.html';
+}
+
+function loadsignoutContent() {
+    window.location.href = 'http://127.0.0.1:5500/Login/login.html';
+}
 
   </script>
 
