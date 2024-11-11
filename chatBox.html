@@ -3,7 +3,7 @@
 <head>
 <title>My Chat</title>
 </head>
-<link rel="stylesheet" href="chatBox.css">
+<link rel="stylesheet" href="public/chatBox.css">
 <ul>
     <li><a href="#home" onclick="loadhomeContent()">Home</a></li>
     <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
@@ -12,15 +12,54 @@
 </ul> 
 
 <body>
-    <div>
-        <h1>My Chats</h1>
-        <p>This is where I see all my chats</p>
+
+    <div class = "chat-container">
+
+        <div class="contacts">
+        <h2>Contacts</h2>
+
+            <ul>
+                <li onclick="openChat('Kanye')">Kanye</li>
+                <li onclick="openChat('Bob')">Bob</li>
+                <li onclick="openChat('Levi')">Levi</li>
+                <li onclick="openChat('Jane')">Jane</li>
+                <li onclick="openChat('Justin')">Justin</li>
+
+            </ul>
+
+        </div>
+
+        <div class="chat-box">
+            <div id="chatHeader">Select a contact to view messages</div>
+            <div class="messages" id="messages"></div>
+        </div>
+
+        <div class="message-input">
+            <input type="text" id="messageText" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+
     </div>
+
+
+    <script src="chatBox.js"></script>
+
+
+
 </body>
+</html>
 
 <script>
+    function openTab(tabId) {
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                // Show the selected tab
+                document.getElementById(tabId).classList.add('active');
+            }
+
     function loadhomeContent() {
-    window.location.href = '/mainMenu.html';
+    window.location.href = '/mainMenu';
 }
 function loadChatContent() {
     window.location.href = '/chatBox.html';
