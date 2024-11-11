@@ -10,7 +10,7 @@ function loadChatContent() {
 }
 
 function loadprofileContent() {
-    window.location.href = '/newUser.html';
+    window.location.href = '/newUser';
 }
 
 function loadsignoutContent() {
