@@ -2,7 +2,7 @@ const User = require('./User');
 class Users {
   userA = new User("A", "", "female", "female", "late", 3, 2, 0)
   constructor() {
-    
+
     this.users = [
       this.userA,
       new User("B", "", "male", "male", "late", 3, 3, 4),
@@ -46,7 +46,7 @@ class Users {
         sumAB = user.profile.cleanLevel * otherUser.profile.cleanLevel
           + user.profile.noiseLevel * otherUser.profile.noiseLevel
           + user.profile.partyLevel * otherUser.profile.partyLevel;
-        
+
         console.log(`User: ${user.profile.userName}, Other User: ${otherUser.profile.userName}`);
         console.log(`sumA: ${sumA}, sumB: ${sumB}`);
         console.log(`sumA2: ${sumA2}, sumB2: ${sumB2}, sumAB: ${sumAB}`);
