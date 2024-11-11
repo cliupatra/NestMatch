@@ -32,6 +32,53 @@
       border-color: #2980b9;
       /* Darker border when hovered */
     }
+
+    * {
+    font-family: "Montserrat", sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+}
+
+body {
+    background-image: url("images/bkg.PNG");
+    background-size: cover; /* Makes the image cover the entire screen */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #274380;
+}
+
+.active {
+    background-color: gold;
+}
+
+.tab-content {
+    display: none; /* Hide all tab content by default */
+}
+
+.tab-content.active {
+    display: block; /* Show the active tab content */
+}
   </style>
 </head>
 
