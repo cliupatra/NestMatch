@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nest Finder</title>
     <link rel="stylesheet" href="style.css">
-    <script src="mainMenu.js"></script>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <ul>
@@ -14,7 +15,7 @@
         <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
         <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
         <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
-    </ul> 
+    </ul>
 
     <!-- Tab Contents -->
     <div id="home" class="tab-content active">
@@ -23,9 +24,18 @@
                 <h1 class="title">Find Your Roomie!</h1>
                 <h1 class="slogan">Add A Slogan here for the app!</h1>
             </div>
-            <div class="profile-info">
-                <img src="images/images.jpg" alt="Test User Image">
-                <p class="description">Ryan, 20</p>
+            <div id="profile-info" class="profile-info">
+                <% if (matches && matches.length> 0) { %>
+                    <% matches.forEach(function(match) { %>
+                        <div class="match-profile">
+                            <p class="description">
+                                <%= match.otherUserProfile.gender %>
+                            </p>
+                        </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No matches available.</p>
+                                <% } %>
             </div>
             <div class="buttonscontainer">
                 <button class="left" onclick="nextSkipUser()">Swipe Left</button>
@@ -34,14 +44,10 @@
         </div>
     </div>
 
-    <div id="chat" class="tab-content">
-    </div>
-
-    <div id="myprofile" class="tab-content">
-    </div>
-
-    <div id="signout" class="tab-content">
-    </div>
+    <div id="chat" class="tab-content"></div>
+    <div id="myprofile" class="tab-content"></div>
+    <div id="signout" class="tab-content"></div>
 
 </body>
+
 </html>

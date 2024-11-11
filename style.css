@@ -1,9 +1,13 @@
 * {
-    font-family: "Inter", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
     background-color: lightblue;
+    background-image: url("images/bkg.PNG");
+    background-size: cover; /* Makes the image cover the entire screen */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
 }
 
 .profilelayout {
@@ -62,7 +66,7 @@ li a:hover:not(.active) {
 }
 
 .active {
-    background-color: gold;
+    background-color: none;
 }
 
 .tab-content {
@@ -72,3 +76,37 @@ li a:hover:not(.active) {
 .tab-content.active {
     display: block; /* Show the active tab content */
 }
+
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  position: relative;
+  width: 1440px;
+  height: 985px;
+  margin: 0 auto;
+  background: url(../assets/images/cb123aa1-b35b-4a38-8b48-5c0d8ffae24c.png)
+    no-repeat center;
+  background-size: 100% 100%;
+}
+
