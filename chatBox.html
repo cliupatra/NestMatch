@@ -43,8 +43,15 @@
 </html>
 
 <script>
+    function openTab(tabId) {
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                // Show the selected tab
+                document.getElementById(tabId).classList.add('active');
+            }
+
     function loadhomeContent() {
-    window.location.href = '/mainMenu.html';
+    window.location.href = '/mainMenu';
 }
 function loadChatContent() {
     window.location.href = '/chatBox.html';
