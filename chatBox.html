@@ -3,6 +3,13 @@
 <head>
 <title>My Chat</title>
 </head>
+<link rel="stylesheet" href="chatBox.css">
+<ul>
+    <li><a href="#home" onclick="loadhomeContent()">Home</a></li>
+    <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
+    <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
+    <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
+</ul> 
 
 <body>
     <div>
@@ -10,3 +17,20 @@
         <p>This is where I see all my chats</p>
     </div>
 </body>
+
+<script>
+    function loadhomeContent() {
+    window.location.href = '/mainMenu.html';
+}
+function loadChatContent() {
+    window.location.href = '/chatBox.html';
+}
+
+function loadprofileContent() {
+    window.location.href = '/newUser.html';
+}
+
+function loadsignoutContent() {
+    window.location.href = '/Login/login.html';
+}
+</script>

@@ -3,6 +3,12 @@
 <head>
   <title>rate your preferences</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+    <!-- Montserrat font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="newUserstyle.css">
 
   <style>
@@ -30,9 +36,9 @@
 </head>
 
 <ul>
-    <li><a href="#home" onclick="openTab('home')">Home</a></li>
+    <li><a href="#home" onclick="loadhomeContent()">Home</a></li>
     <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
-    <li><a href="#home" onclick="loadhomeContent()">Profile Setting</a></li>
+    <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
     <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
 </ul> 
 
@@ -94,11 +100,11 @@
   <div id="chat" class="tab-content">
     </div>
 
-  <div id="home" class="tab-content">
-  </div>
+    <div id="myprofile" class="tab-content">
+    </div>
 
-  <div id="signout" class="tab-content">
-  </div>
+    <div id="signout" class="tab-content">
+    </div>
 
   <script>
 
@@ -166,16 +172,19 @@
     document.getElementById(tabId).classList.add('active');
 }
 
+function loadhomeContent() {
+    window.location.href = '/mainMenu.html';
+}
 function loadChatContent() {
-    window.location.href = 'http://127.0.0.1:5500/chatBox.html';
+    window.location.href = '/chatBox.html';
 }
 
-function loadhomeContent() {
-    window.location.href = 'http://127.0.0.1:5500/mainMenu.html';
+function loadprofileContent() {
+    window.location.href = '/newUser.html';
 }
 
 function loadsignoutContent() {
-    window.location.href = 'http://127.0.0.1:5500/Login/login.html';
+    window.location.href = '/Login/login.html';
 }
 
   </script>
