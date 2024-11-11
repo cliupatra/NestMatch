@@ -22,6 +22,7 @@
         <div class="profilelayout">
             <div class="header">
                 <h1 class="title">Find Your Roomie!</h1>
+                <h1 class="slogan">Add A Slogan here for the app!</h1>
             </div>
             <div id="profile-info" class="profile-info">
                 <!-- Match Display -->
@@ -32,20 +33,25 @@
                             <!-- Image container for profile picture -->
                             <img id="match-image" src="<%= matches[0].imageURL %>" alt="Profile Image" style="width:200px; height:auto;">
                             <p class="description">
-                                <%= matches[0].userName %>, <%= matches[0].age %> years old, <%= matches[0].gender %>
+                                <%= match.otherUserProfile.userName %>,
+                                <%= match.otherUserProfile.gender %>
                             </p>
                         </div>
-                    <% } else { %>
-                        <p>No matches found.</p>
-                    <% } %>
-                </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No matches available.</p>
+                                <% } %>
             </div>
             <div class="buttonscontainer">
-                <button class="left" onclick="nextSkipUser()">Skip</button>
+                <button class="left" onclick="nextSkipUser()">Swipe Left</button>
                 <button class="right" onclick="nextKeepUser()">Nest Me</button>
             </div>
         </div>
     </div>
+
+    <div id="chat" class="tab-content"></div>
+    <div id="myprofile" class="tab-content"></div>
+    <div id="signout" class="tab-content"></div>
 
     <script>
         // Matches data passed from the server-side (EJS rendered on load)
@@ -92,22 +98,33 @@
 
         // Navigation functions
         function openTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-        }
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                // Show the selected tab
+                document.getElementById(tabId).classList.add('active');
+            }
 
-        function loadChatContent() {
-            window.location.href = '/chatBox.html';
-        }
+            function loadChatContent() {
+                window.location.href = '/chatBox.html';
+            }
 
-        function loadprofileContent() {
-            window.location.href = '/newUser';
-        }
+            function loadprofileContent() {
+                window.location.href = '/newUser';
+            }
 
-        function loadsignoutContent() {
-            window.location.href = '/Login/login.html';
-        }
+            function loadsignoutContent() {
+                window.location.href = '/Login/login.html';
+            }
+
+            function nextSkipUser() {
+
+            }
+
+            function nextKeepUser() {
+
+            }
     </script>
 
 </body>
+
 </html>
