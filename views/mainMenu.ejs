@@ -29,6 +29,8 @@
                     <!-- Render matches using EJS -->
                     <% if (matches && matches.length > 0) { %>
                         <div id="match-container">
+                            <!-- Image container for profile picture -->
+                            <img id="match-image" src="<%= matches[0].imageURL %>" alt="Profile Image" style="width:200px; height:auto;">
                             <p class="description">
                                 <%= matches[0].userName %>, <%= matches[0].age %> years old, <%= matches[0].gender %>
                             </p>
@@ -53,13 +55,14 @@
         // Function to display the current match
         function displayCurrentMatch() {
             const matchProfileDiv = document.getElementById("match-container");
+            const matchImage = document.getElementById("match-image");
             if (matches.length > 0 && currentMatchIndex < matches.length) {
                 const match = matches[currentMatchIndex].otherUserProfile;
-                matchProfileDiv.innerHTML = `
-                    <p class="description">
-                        ${match.userName}, ${match.gender}
-                    </p>
-                `;
+                matchImage.src = match.imageURL;
+                matchContainer.innerHTML = `
+                <img id="match-image" src="${match.imageURL}" alt="Profile Image" style="width:200px; height:auto;">
+                <p class="description">${match.userName}, ${match.age} years old, ${match.gender}</p>
+            `;
             } else {
                 matchProfileDiv.innerHTML = "<p>No more matches available.</p>";
             }
