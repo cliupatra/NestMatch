@@ -2,7 +2,7 @@
 
 <head>
   <title>rate your preferences</title>
-
+  <link rel="stylesheet" href="public/chatBox.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -95,6 +95,7 @@ li a:hover:not(.active) {
 </ul>
 
 <body>
+    <div class="container">
   <p class="title">Edit Your Profile: </p>
 
   <p>Enter your name: <input type="text" id="name" /></p>
@@ -218,12 +219,12 @@ li a:hover:not(.active) {
       document.getElementById(tabId).classList.add("active");
     }
 
-function loadhomeContent() {
+    function loadhomeContent() {
     window.location.href = '/mainMenu';
-}
-function loadChatContent() {
-    window.location.href = '/chatBox.html';
-}
+    }
+    function loadChatContent() {
+        window.location.href = '/chatBox.html';
+    }
 
     function loadprofileContent() {
       window.location.href = "/newUser.html";
@@ -233,4 +234,6 @@ function loadChatContent() {
       window.location.href = "/Login/login.html";
     }
   </script>
+
+</div>
 </body>
