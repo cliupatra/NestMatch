@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <title>Login</title>
-    <link rel="stylesheet" href="frontPageStyles.css">
+    <link rel="stylesheet" href="../public/frontPageStyles.css">
 </head>
 
 <body>
 
-    <div class = "wrapper">
-        
+    <div class="wrapper">
+
+
         <form id="loginForm">
 
-            <img src = "frontPage_Images/NestMatch.png"
-            alt="logo"
-            width="150"
-            height="150"/>
+            <img src="../public/frontPage_Images/NestMatch.png" alt="logo" width="150" height="150" />
 
             <h1><strong>Welcome to Nest Match!</strong></h1>
 
@@ -28,31 +27,32 @@
                 <input required type="text" name="password" id="password-input" placeholder="Password">
             </div>
 
-        
+
             <button type="submit">Login</button>
 
         </form>
 
-        <p>Don't have an Account?<a href="signup.html"> Sign Up!</a></p>
+        <p>Don't have an Account?<a href="signup"> Sign Up!</a></p>
 
 
 
     </div>
 
     <script>
-       
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault();
-          
+
             if (this.checkValidity()) {
-                window.location.href = '../mainMenu.html'; 
+                window.location.href = '../mainMenu';
             } else {
                 event.preventDefault();
                 alert('Please fill in all required fields.');
             }
         });
-    </script>   
+    </script>
 
-    
+
 </body>
+
 </html>

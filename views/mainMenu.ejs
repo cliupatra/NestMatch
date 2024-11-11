@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nest Finder</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <ul>
+        <li><a href="#home" onclick="openTab('home')">Home</a></li>
+        <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
+        <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
+        <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
+    </ul>
+
+    <!-- Tab Contents -->
+    <div id="home" class="tab-content active">
+        <div class="profilelayout">
+            <div class="header">
+                <h1 class="title">Find Your Roomie!</h1>
+                <h1 class="slogan">Add A Slogan here for the app!</h1>
+            </div>
+            <div id="profile-info" class="profile-info">
+                <% if (matches && matches.length> 0) { %>
+                    <% matches.forEach(function(match) { %>
+                        <div class="match-profile">
+                            <p class="description">
+                                <%= match.otherUserProfile.gender %>
+                            </p>
+                        </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No matches available.</p>
+                                <% } %>
+            </div>
+            <div class="buttonscontainer">
+                <button class="left" onclick="nextSkipUser()">Swipe Left</button>
+                <button class="right" onclick="nextKeepUser()">Nest Me</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat" class="tab-content"></div>
+    <div id="myprofile" class="tab-content"></div>
+    <div id="signout" class="tab-content"></div>
+
+</body>
+
+</html>
