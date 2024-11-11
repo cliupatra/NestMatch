@@ -58,4 +58,6 @@ function openChat(userId) {
         messageElement.innerText = message.text;
         messagesContainer.appendChild(messageElement);
     });
+
+    
 }

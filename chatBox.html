@@ -43,6 +43,13 @@
 </html>
 
 <script>
+    function openTab(tabId) {
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                // Show the selected tab
+                document.getElementById(tabId).classList.add('active');
+            }
+
     function loadhomeContent() {
     window.location.href = '/mainMenu';
 }
