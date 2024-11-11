@@ -7,121 +7,7 @@
     <title>Nest Finder</title>
     <link rel="stylesheet" href="../public/style.css">
 </head>
-<style>
-* {
-    font-family: "Montserrat", sans-serif;
-}
 
-body {
-    background-color: lightblue;
-    background-image: url("images/bkg.PNG");
-    background-size: cover; /* Makes the image cover the entire screen */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image */
-}
-
-.profilelayout {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-    margin-right: 35%;
-}
-
-.left {
-    border-radius: 20px;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: red;
-}
-
-.right {
-    border-radius: 20px;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: blue;
-}
-
-img {
-    outline-style: double;
-    outline-color: lightgoldenrodyellow;
-    outline-width: 15px;
-    border-radius: 20px;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: blue;
-}
-
-li {
-    float: right;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #274380;
-}
-
-.active {
-    background-color: none;
-}
-
-.tab-content {
-    display: none; /* Hide all tab content by default */
-}
-
-.tab-content.active {
-    display: block; /* Show the active tab content */
-}
-
-:root {
-  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
-    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
-    "Source Han Sans CN", sans-serif;
-}
-
-.main-container {
-  overflow: hidden;
-}
-
-.main-container,
-.main-container * {
-  box-sizing: border-box;
-}
-
-input,
-select,
-textarea,
-button {
-  outline: 0;
-}
-
-.main-container {
-  position: relative;
-  width: 1440px;
-  height: 985px;
-  margin: 0 auto;
-  background: url(../assets/images/cb123aa1-b35b-4a38-8b48-5c0d8ffae24c.png)
-    no-repeat center;
-  background-size: 100% 100%;
-}
-
-
-</style>
 <body>
     <!-- Navigation Bar -->
     <ul>
@@ -136,14 +22,20 @@ button {
         <div class="profilelayout">
             <div class="header">
                 <h1 class="title">Find Your Roomie!</h1>
-                <h1 class="slogan">Add A Slogan here for the app!</h1>
             </div>
             <div id="profile-info" class="profile-info">
                 <!-- Match Display -->
                 <div id="match-profile" class="match-profile">
-                    <p class="description">
-                        <!-- Match details will be populated here by JavaScript -->
-                    </p>
+                    <!-- Render matches using EJS -->
+                    <% if (matches && matches.length > 0) { %>
+                        <div id="match-container">
+                            <p class="description">
+                                <%= matches[0].userName %>, <%= matches[0].age %> years old, <%= matches[0].gender %>
+                            </p>
+                        </div>
+                    <% } else { %>
+                        <p>No matches found.</p>
+                    <% } %>
                 </div>
             </div>
             <div class="buttonscontainer">
@@ -153,29 +45,19 @@ button {
         </div>
     </div>
 
-    <div id="chat" class="tab-content"></div>
-    <div id="myprofile" class="tab-content"></div>
-    <div id="signout" class="tab-content"></div>
-
     <script>
-        // Sample matches (you would fetch this data dynamically)
-        const matches = [
-            { userName: "John Doe", gender: "Male", age: 25 },
-            { userName: "Jane Smith", gender: "Female", age: 22 },
-            { userName: "Alice Green", gender: "Female", age: 27 },
-            { userName: "Bob Brown", gender: "Male", age: 24 },
-        ];
-
-        let currentMatchIndex = 0; // Track the index of the current match
+        // Matches data passed from the server-side (EJS rendered on load)
+        const matches = <%- JSON.stringify(matches) %>;
+        let currentMatchIndex = 0;
 
         // Function to display the current match
         function displayCurrentMatch() {
-            const matchProfileDiv = document.getElementById("match-profile");
+            const matchProfileDiv = document.getElementById("match-container");
             if (matches.length > 0 && currentMatchIndex < matches.length) {
-                const match = matches[currentMatchIndex];
+                const match = matches[currentMatchIndex].otherUserProfile;
                 matchProfileDiv.innerHTML = `
                     <p class="description">
-                        ${match.userName}, ${match.age} years old, ${match.gender}
+                        ${match.userName}, ${match.gender}
                     </p>
                 `;
             } else {
@@ -183,20 +65,19 @@ button {
             }
         }
 
-        // Function to handle the "Skip" action
+        // Functions to handle "Skip" and "Nest Me" actions
         function nextSkipUser() {
             if (currentMatchIndex < matches.length - 1) {
-                currentMatchIndex++; // Move to the next match
+                currentMatchIndex++;
             } else {
                 alert("No more matches.");
             }
             displayCurrentMatch();
         }
 
-        // Function to handle the "Nest Me" action
         function nextKeepUser() {
             if (currentMatchIndex < matches.length - 1) {
-                currentMatchIndex++; // Move to the next match
+                currentMatchIndex++;
             } else {
                 alert("No more matches.");
             }
@@ -206,7 +87,7 @@ button {
         // Initialize by displaying the first match
         window.onload = displayCurrentMatch;
 
-        // Functions for Navigation
+        // Navigation functions
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
@@ -226,5 +107,4 @@ button {
     </script>
 
 </body>
-
 </html>

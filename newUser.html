@@ -3,11 +3,14 @@
 <head>
   <title>rate your preferences</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-    <!-- Montserrat font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Montserrat font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="public/newUserstyle.css">
 
@@ -83,58 +86,57 @@ li a:hover:not(.active) {
 </head>
 
 <ul>
-    <li><a href="#home" onclick="loadhomeContent()">Home</a></li>
-    <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
-    <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
-    <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
-</ul> 
+  <li><a href="#home" onclick="loadhomeContent()">Home</a></li>
+  <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
+  <li>
+    <a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a>
+  </li>
+  <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
+</ul>
 
 <body>
-  <p>Enter your name: <input type="text" id="name"></p>
-  <p>Select your gender:
+  <p class="title">Edit Your Profile: </p>
+
+  <p>Enter your name: <input type="text" id="name" /></p>
+  <p>
+    Select your gender:
     <select id="gender">
       <option value="female">Female</option>
       <option value="male">Male</option>
     </select>
   </p>
 
-  <p>You prefer to room with a:
+  <p>
+    You prefer to room with a:
     <select id="roommate-gender">
       <option value="female">Female</option>
       <option value="male">Male</option>
     </select>
-
   </p>
 
-  <p>Are you a:
+  <p>
+    Are you a:
     <select id="sleepLevel">
       <option value="early">Early Bird</option>
       <option value="late">Night Owl</option>
     </select>
-
   </p>
 
-  <p>
-    How clean are you?
-  </p>
+  <p>How clean are you?</p>
   <button class="choice-button" cleanLevel="1">1</button>
   <button class="choice-button" cleanLevel="2">2</button>
   <button class="choice-button" cleanLevel="3">3</button>
   <button class="choice-button" cleanLevel="4">4</button>
   <button class="choice-button" cleanLevel="5">5</button>
 
-  <p>
-    What noise level do you like:
-  </p>
+  <p>What noise level do you like:</p>
   <button class="choice-button" noiseLevel="1">1</button>
   <button class="choice-button" noiseLevel="2">2</button>
   <button class="choice-button" noiseLevel="3">3</button>
   <button class="choice-button" noiseLevel="4">4</button>
   <button class="choice-button" noiseLevel="5">5</button>
 
-  <p>
-    How much of a partier are you?
-  </p>
+  <p>How much of a partier are you?</p>
 
   <button class="choice-button" partyLevel="1">1</button>
   <button class="choice-button" partyLevel="2">2</button>
@@ -144,46 +146,41 @@ li a:hover:not(.active) {
 
   <button id="submit-button">Submit</button>
 
-  <div id="chat" class="tab-content">
-    </div>
+  <div id="chat" class="tab-content"></div>
 
-    <div id="myprofile" class="tab-content">
-    </div>
+  <div id="myprofile" class="tab-content"></div>
 
-    <div id="signout" class="tab-content">
-    </div>
+  <div id="signout" class="tab-content"></div>
 
   <script>
-
     let cleanLevel, noiseLevel, partyLevel;
 
-    const cleanButtons = document.querySelectorAll('[cleanLevel]');
-    cleanButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        cleanLevel = button.getAttribute('cleanLevel');
+    const cleanButtons = document.querySelectorAll("[cleanLevel]");
+    cleanButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        cleanLevel = button.getAttribute("cleanLevel");
       });
     });
 
-    const noiseButtons = document.querySelectorAll('[noiseLevel]');
-    noiseButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        noiseLevel = button.getAttribute('noiseLevel');
+    const noiseButtons = document.querySelectorAll("[noiseLevel]");
+    noiseButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        noiseLevel = button.getAttribute("noiseLevel");
       });
     });
 
-    const partyButtons = document.querySelectorAll('[partyLevel]');
-    partyButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        partyLevel = button.getAttribute('partyLevel');
+    const partyButtons = document.querySelectorAll("[partyLevel]");
+    partyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        partyLevel = button.getAttribute("partyLevel");
       });
     });
 
-
-    document.getElementById('submit-button').addEventListener('click', () => {
-      const userName = document.getElementById('name').value;
-      const gender = document.getElementById('gender').value;
-      const preferToRoomWith = document.getElementById('roommate-gender').value;
-      const sleepLevel = document.getElementById('sleepLevel').value;
+    document.getElementById("submit-button").addEventListener("click", () => {
+      const userName = document.getElementById("name").value;
+      const gender = document.getElementById("gender").value;
+      const preferToRoomWith = document.getElementById("roommate-gender").value;
+      const sleepLevel = document.getElementById("sleepLevel").value;
 
       const userData = {
         userName,
@@ -192,48 +189,48 @@ li a:hover:not(.active) {
         sleepLevel,
         cleanLevel,
         noiseLevel,
-        partyLevel
+        partyLevel,
       };
 
-      fetch('/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
+      fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
       })
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           if (data.redirect) {
             // Manually redirect to another HTML file
             window.location.href = data.redirect;
           }
         })
-        .catch(error => {
-          console.error('Error:', error);
+        .catch((error) => {
+          console.error("Error:", error);
         });
     });
 
     function openTab(tabId) {
-    // Hide all tab content
-    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-    // Show the selected tab
-    document.getElementById(tabId).classList.add('active');
-}
+      // Hide all tab content
+      document
+        .querySelectorAll(".tab-content")
+        .forEach((tab) => tab.classList.remove("active"));
+      // Show the selected tab
+      document.getElementById(tabId).classList.add("active");
+    }
 
 function loadhomeContent() {
-    window.location.href = '/mainMenu';
+    window.location.href = '/mainMenu.html';
 }
 function loadChatContent() {
     window.location.href = '/chatBox.html';
 }
 
-function loadprofileContent() {
-    window.location.href = '/newUser.html';
-}
+    function loadprofileContent() {
+      window.location.href = "/newUser.html";
+    }
 
-function loadsignoutContent() {
-    window.location.href = '/Login/login.html';
-}
-
+    function loadsignoutContent() {
+      window.location.href = "/Login/login.html";
+    }
   </script>
-
 </body>

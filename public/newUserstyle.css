@@ -1,46 +1,75 @@
 * {
-    font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 32.547px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: blue;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(
+    --bkg,
+    radial-gradient(
+      455.02% 175.74% at -58.54% -12.44%,
+      #ffffd4 20.28%,
+      #6cd0d0 100%
+    )
+  );
+  box-shadow: 0px 4px 30.1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  display: flex;
+  width: 598px;
+  height: 77.74px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: #000;
+  font-family: Montserrat;
+  font-size: 57.604px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 body {
-    background-image: url("images/bkg.PNG");
-    background-size: cover; /* Makes the image cover the entire screen */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image */
+  background-image: url("images/bkg.PNG");
+  background-size: cover; /* Makes the image cover the entire screen */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
 }
 
 li {
-    float: right;
+  float: right;
 }
 
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 li a:hover:not(.active) {
-    background-color: #274380;
+  background-color: #274380;
 }
 
 .active {
-    background-color: gold;
+  background-color: gold;
 }
 
 .tab-content {
-    display: none; /* Hide all tab content by default */
+  display: none; /* Hide all tab content by default */
 }
 
 .tab-content.active {
-    display: block; /* Show the active tab content */
+  display: block; /* Show the active tab content */
 }
