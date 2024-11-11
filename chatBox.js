@@ -59,5 +59,33 @@ function openChat(userId) {
         messagesContainer.appendChild(messageElement);
     });
 
-    
 }
+
+function sendMessage() {
+    const messageText = document.getElementById("messageText").value.trim();
+    if (messageText === "") return; 
+
+    const chatHeader = document.getElementById("chatHeader").innerText;
+    const userId = chatHeader.replace('Chat with ', '').toLowerCase(); 
+
+
+    if (messagesData[userId]) {
+        messagesData[userId].push({ type: 'sent', text: messageText });
+    } else {
+        messagesData[userId] = [{ type: 'sent', text: messageText }];
+    }
+
+
+    const messagesContainer = document.getElementById("messages");
+    const newMessageElement = document.createElement("p");
+    newMessageElement.classList.add("message", "sent");
+    newMessageElement.innerText = messageText;
+    messagesContainer.appendChild(newMessageElement);
+
+
+    document.getElementById("messageText").value = '';
+
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+

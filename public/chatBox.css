@@ -42,6 +42,10 @@ li a:hover:not(.active) {
     font-family: Arial, sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
 .chat-container {
     display: flex;
     height: 100vh;
@@ -52,6 +56,7 @@ li a:hover:not(.active) {
     background-color: #f3f3f3;
     padding: 20px;
     border-right: 1px solid #ddd;
+    display: flex;
     flex-direction: column;
 }
 
@@ -63,6 +68,7 @@ li a:hover:not(.active) {
 .contacts ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     flex-grow: 1;
     overflow-y: auto;
     display: flex;
@@ -70,7 +76,7 @@ li a:hover:not(.active) {
 }
 
 .contacts li {
-    padding: 10px;
+    padding: 15px 10px;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
     text-align: left;
@@ -85,6 +91,7 @@ li a:hover:not(.active) {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 60px); /* Adjust height to leave space for input */
 }
 
 #chatHeader {
@@ -116,3 +123,35 @@ li a:hover:not(.active) {
     align-self: flex-end;
 }
 
+.message-input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+
+.message-input input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.message-input button {
+    width: 15%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-input button:hover {
+    background-color: #0056b3;
+}
