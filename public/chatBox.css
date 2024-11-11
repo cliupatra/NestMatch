@@ -12,10 +12,18 @@ li {
 
 li a {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+body {
+
+    background-image: url("../images/bkg.PNG");
+    background-size: cover; /* Makes the image cover the entire screen */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
 }
 
 li a:hover:not(.active) {
@@ -46,6 +54,12 @@ html, body {
     height: 100%;
 }
 
+html {
+    font-family: "Inter", sans-serif;
+    font-size: 12pt;
+    color: white;
+}
+
 .chat-container {
     display: flex;
     height: 100vh;
@@ -53,7 +67,6 @@ html, body {
 
 .contacts {
     width: 30%;
-    background-color: #f3f3f3;
     padding: 20px;
     border-right: 1px solid #ddd;
     display: flex;
@@ -92,6 +105,7 @@ html, body {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 60px); /* Adjust height to leave space for input */
+    color: black;
 }
 
 #chatHeader {
