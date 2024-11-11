@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nest Finder</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Montserrat font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
     <script src="mainMenu.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <ul>
-        <li><a href="#home" onclick="openTab('home')">Home</a></li>
-        <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
-        <li><a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a></li>
-        <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
-    </ul> 
+      <li><a href="#home" onclick="openTab('home')">Home</a></li>
+      <li><a href="#chat" onclick="loadChatContent()">Chat</a></li>
+      <li>
+        <a href="#myprofile" onclick="loadprofileContent()">Profile Setting</a>
+      </li>
+      <li><a href="#signout" onclick="loadsignoutContent()">Sign Out</a></li>
+    </ul>
 
     <!-- Tab Contents -->
     <div id="home" class="tab-content active">
-        <div class="profilelayout">
-            <div class="header">
-                <h1 class="title">Find Your Roomie!</h1>
-                <h1 class="slogan">Add A Slogan here for the app!</h1>
-            </div>
-            <div class="profile-info">
-                <img src="images/images.jpg" alt="Test User Image">
-                <p class="description">Ryan, 20</p>
-            </div>
-            <div class="buttonscontainer">
-                <button class="left" onclick="nextSkipUser()">Swipe Left</button>
-                <button class="right" onclick="nextKeepUser()">Nest Me</button>
-            </div>
+      <div class="profilelayout">
+        <div class="header">
+          <h1 class="title">Find Your Roomie!</h1>
+          <h1 class="slogan">Add A Slogan here for the app!</h1>
         </div>
+        <div class="profile-info">
+          <img src="images/images.jpg" alt="Test User Image" />
+          <p class="description">Ryan, 20</p>
+        </div>
+        <div class="buttonscontainer">
+          <button class="left" onclick="nextSkipUser()">Swipe Left</button>
+          <button class="right" onclick="nextKeepUser()">Nest Me</button>
+        </div>
+      </div>
     </div>
 
-    <div id="chat" class="tab-content">
-    </div>
+    <div id="chat" class="tab-content"></div>
 
-    <div id="myprofile" class="tab-content">
-    </div>
+    <div id="myprofile" class="tab-content"></div>
 
-    <div id="signout" class="tab-content">
-    </div>
-
-</body>
+    <div id="signout" class="tab-content"></div>
+  </body>
 </html>
