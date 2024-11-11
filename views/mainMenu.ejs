@@ -22,62 +22,89 @@
         <div class="profilelayout">
             <div class="header">
                 <h1 class="title">Find Your Roomie!</h1>
-                <h1 class="slogan">Add A Slogan here for the app!</h1>
             </div>
             <div id="profile-info" class="profile-info">
-                <% if (matches && matches.length> 0) { %>
-                    <% matches.forEach(function(match) { %>
-                        <div class="match-profile">
+                <!-- Match Display -->
+                <div id="match-profile" class="match-profile">
+                    <!-- Render matches using EJS -->
+                    <% if (matches && matches.length > 0) { %>
+                        <div id="match-container">
                             <p class="description">
-                                <%= match.otherUserProfile.userName %>,
-                                <%= match.otherUserProfile.gender %>
+                                <%= matches[0].userName %>, <%= matches[0].age %> years old, <%= matches[0].gender %>
                             </p>
                         </div>
-                        <% }); %>
-                            <% } else { %>
-                                <p>No matches available.</p>
-                                <% } %>
+                    <% } else { %>
+                        <p>No matches found.</p>
+                    <% } %>
+                </div>
             </div>
             <div class="buttonscontainer">
-                <button class="left" onclick="nextSkipUser()">Swipe Left</button>
+                <button class="left" onclick="nextSkipUser()">Skip</button>
                 <button class="right" onclick="nextKeepUser()">Nest Me</button>
             </div>
         </div>
     </div>
 
-    <div id="chat" class="tab-content"></div>
-    <div id="myprofile" class="tab-content"></div>
-    <div id="signout" class="tab-content"></div>
-
     <script>
+        // Matches data passed from the server-side (EJS rendered on load)
+        const matches = <%- JSON.stringify(matches) %>;
+        let currentMatchIndex = 0;
+
+        // Function to display the current match
+        function displayCurrentMatch() {
+            const matchProfileDiv = document.getElementById("match-container");
+            if (matches.length > 0 && currentMatchIndex < matches.length) {
+                const match = matches[currentMatchIndex].otherUserProfile;
+                matchProfileDiv.innerHTML = `
+                    <p class="description">
+                        ${match.userName}, ${match.gender}
+                    </p>
+                `;
+            } else {
+                matchProfileDiv.innerHTML = "<p>No more matches available.</p>";
+            }
+        }
+
+        // Functions to handle "Skip" and "Nest Me" actions
+        function nextSkipUser() {
+            if (currentMatchIndex < matches.length - 1) {
+                currentMatchIndex++;
+            } else {
+                alert("No more matches.");
+            }
+            displayCurrentMatch();
+        }
+
+        function nextKeepUser() {
+            if (currentMatchIndex < matches.length - 1) {
+                currentMatchIndex++;
+            } else {
+                alert("No more matches.");
+            }
+            displayCurrentMatch();
+        }
+
+        // Initialize by displaying the first match
+        window.onload = displayCurrentMatch;
+
+        // Navigation functions
         function openTab(tabId) {
-                // Hide all tab content
-                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-                // Show the selected tab
-                document.getElementById(tabId).classList.add('active');
-            }
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
 
-            function loadChatContent() {
-                window.location.href = '/chatBox.html';
-            }
+        function loadChatContent() {
+            window.location.href = '/chatBox.html';
+        }
 
-            function loadprofileContent() {
-                window.location.href = '/newUser';
-            }
+        function loadprofileContent() {
+            window.location.href = '/newUser';
+        }
 
-            function loadsignoutContent() {
-                window.location.href = '/Login/login.html';
-            }
-
-            function nextSkipUser() {
-
-            }
-
-            function nextKeepUser() {
-
-            }
+        function loadsignoutContent() {
+            window.location.href = '/Login/login.html';
+        }
     </script>
 
 </body>
-
 </html>

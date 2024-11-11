@@ -1,13 +1,13 @@
 const User = require('./User');
 class Users {
-  userA = new User("A", "", "female", "female", "late", 3, 2, 0)
+  userA = new User("Alyssa", "Hi, I'm a second year and I'm looking for a roommate that is tidy and not too loud. I'm definitely not a partier so I would appreaciate a roommate who's the same! I am a late sleeper.", "female", "female", "late", 3, 2, 0)
   constructor() {
 
     this.users = [
       this.userA,
-      new User("B", "", "male", "male", "late", 3, 3, 4),
-      new User("C", "", "female", "female", "early", 3, 5, 2),
-      new User("D", "", "male", "male", "late", 3, 5, 1)
+      new User("Brian", "Hi, I'm looking for a roommate that is fine with me coming back home late from parties!", "male", "male", "late", 3, 3, 4),
+      new User("Carrie", "Looking for someone that is clean and sleeps early!", "female", "female", "early", 3, 5, 2),
+      new User("Dean", "Looking for someone who's clean. Fine with noise.", "male", "male", "late", 3, 5, 1)
     ];
   }
 
