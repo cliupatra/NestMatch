@@ -20,7 +20,7 @@ html {
 
 body {
     min-height: 100vh;
-    background-image: url("/Login/frontPage_Images/ubc.jpg");
+    background-image: url("frontPage_Images/ubc.jpg");
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
