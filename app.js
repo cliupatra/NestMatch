@@ -11,10 +11,14 @@ let user, matches;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); // You can store your EJS templates in a 'views' folder
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Login', 'login.html'));
+  res.sendFile(path.join(__dirname, '/Login/login.html'));
+});
+
+app.get('/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Login/signup.html'));
 });
 
 app.get('/newUser', (req, res) => {
